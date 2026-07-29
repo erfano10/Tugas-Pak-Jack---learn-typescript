@@ -17,3 +17,19 @@
  * - Bonus
  * - Final salary
  */
+//npm run example src/02-operators/tasks/task-03.ts
+
+const employeName = "Dimas";
+const BasicSalary = 5000000;
+const OvertimeHours = 12;
+const OvertimeRate = 50000;
+
+const OvertimePay = OvertimeHours * OvertimeRate
+
+const bonus = OvertimeHours > 10 ? 300000 : 0;
+const FinalSalary = BasicSalary + OvertimePay + bonus 
+console.log(`=== Task 03 ===`)
+console.log("employee name :", employeName)
+console.log("Overtime Pay :", OvertimePay)
+console.log("bonus :RP.", bonus)
+console.log("Final Salary :", FinalSalary)

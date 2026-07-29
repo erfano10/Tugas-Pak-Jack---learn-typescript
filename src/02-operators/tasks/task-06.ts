@@ -13,3 +13,26 @@
  * - Discount amount
  * - Final payment
  */
+
+const hourlyRate = 8000
+const hourplayed = 7 
+const minutePlayed = 35 
+
+const totalMinutes = (hourplayed*60 + minutePlayed)
+const remainingMinutes = totalMinutes * 60
+
+const billedHours = Math.ceil(totalMinutes/60)
+const beforeDiscount = billedHours * hourlyRate
+
+const isEligibleDiscount = billedHours > 5
+const discountAmount = isEligibleDiscount ? beforeDiscount * 0.15 : 0
+
+const finalpayment = beforeDiscount - discountAmount
+
+console.log("=== Task 06 ===")
+console.log("Total playing time (minutes) :", totalMinutes);
+console.log("Remaining minutes            :", remainingMinutes);
+console.log("Total billed hours           :", billedHours);
+console.log("Total payment before discount: Rp.", beforeDiscount);
+console.log("Discount amount (15%)        : Rp.", discountAmount);
+console.log("Final payment                : Rp.", finalpayment);

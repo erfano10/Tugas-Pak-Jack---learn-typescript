@@ -14,3 +14,26 @@
  * 2. Store the participant data in a single collection.
  * 3. Display the participant data using console.log.
  */
+
+interface programmingBootcamp {
+    studentID: string
+    name: string
+    age: number
+    HasPaid: boolean
+}
+
+const programmingBootcampList: programmingBootcamp[] = [
+    { studentID: "ST001", name: "Ahmad Fauzi ", age: 16, HasPaid: true },
+    { studentID: "ST002", name: "Siti Nurhaliza", age: 17, HasPaid: false },
+    { studentID: "ST003", name: "Budi Santoso", age: 16, HasPaid: true }
+]
+
+console.log(`---Task 9---`)
+programmingBootcampList.forEach((proggammingBootcamp, index) => {
+    console.log(`\nStudent Register ke : ${index + 1}`)
+    console.log("student ID :", proggammingBootcamp.studentID)
+    console.log("Student Name :", proggammingBootcamp.name)
+    console.log("Student age :", proggammingBootcamp.age)
+    console.log("Student Paid :", proggammingBootcamp.HasPaid ? "YES" : "NO")
+})
+

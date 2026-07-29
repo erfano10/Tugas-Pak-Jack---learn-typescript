@@ -14,3 +14,19 @@
  * Task: Store and display the result in a variable named "isEligible"
 
  */
+//npm run example src/02-operators/tasks/task-02.ts
+const FinalScore = 82;
+const Attendance = 94;
+const TuitionPaid = true
+
+const isEligible = FinalScore >=75 && Attendance >=90 && TuitionPaid;
+
+console.log(`--- Task 2 ---`)
+console.log(`|INFORMATION  | VALUE |`)
+console.log(`|-------------|-------|`)
+console.log(`| Final Score | ${FinalScore}    |`)
+console.log(`| Attendance  | ${Attendance}    |`)
+console.log(`|Tuition Paid | ${TuitionPaid ?"YES":"NO"}   | `)
+console.log(`|-------------|-------|`)
+
+console.log("Student is Eligible:", isEligible)

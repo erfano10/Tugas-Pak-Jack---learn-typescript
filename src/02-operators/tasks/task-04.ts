@@ -22,3 +22,33 @@
  *  - Calculate the final payment.
 
  */
+const KeyboardPrice = 850000
+const KeyboardQty = 1
+
+const mousePrice = 275000
+const mouseQty = 2
+
+const mousePadPrice = 120000
+const mousePadQty = 1
+
+const Ispremium = true
+
+let totalItem = 0
+
+totalItem += KeyboardQty
+totalItem += mouseQty
+totalItem += mousePadQty
+
+const subtotal = (KeyboardPrice * KeyboardQty) + (mousePrice * mouseQty) + (mousePadPrice * mousePadQty)
+const isEligibleDiscount = subtotal > 1000000
+const discountAmount = isEligibleDiscount ? subtotal * 0.10 : 0
+const finalpayment = subtotal - discountAmount
+
+const freeshipping = Ispremium
+
+console.log(`=== Task 04 ===`)
+console.log("total item :", totalItem)
+console.log("Subtotal :", subtotal)
+console.log("Discount Amount :", discountAmount)
+console.log("final payment :", finalpayment)
+console.log("Free ongkir :", freeshipping ? "YES" : "NO")

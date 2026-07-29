@@ -14,3 +14,22 @@
  * 3. Create the variable declarations using TypeScript.
  * 4. Display the student data using console.log.
  */
+ //npm run example src/01-data-types/tasks/task-01.ts
+
+const StudentName: string = "Nadia Putri"
+const studentID: string = "ST2026045"
+const beforeDeadline: boolean = true
+const Ulangan: string[] = ["Assigments","midtrem exam","final exam"]
+
+const score: number[] = [88.5, 84, 91.5]
+const attendanceScore: number = 100
+const extracurricular: boolean = true
+
+console.log("=== task 01 ===")
+console.log("Student Name :", StudentName); 
+console.log("Student ID :", studentID);
+console.log(`ulangan: ${Ulangan[0]} nilai: ${score[0]}`)
+console.log(`ulangan: ${Ulangan[1]} nilai: ${score[1]}`)
+console.log(`ulangan: ${Ulangan[2]} nilai: ${score[2]}`)
+console.log("attendance:", attendanceScore)
+console.log("Extra :", extracurricular)

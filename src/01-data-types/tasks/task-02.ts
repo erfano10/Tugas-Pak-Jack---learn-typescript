@@ -14,3 +14,37 @@
  * 4. Declare all variables in TypeScript.
  * 5. Display the product data using console.log.
  */
+// npm run example src/01-data-types/tasks/task-02.ts
+
+interface keyboard {
+    code: string
+    price: number
+    discount: boolean
+    disc: number
+    buy: number
+    stock:number
+}
+
+const memberprem: boolean = true
+const initialprice: number = 850000
+const discrate: number =  0.25
+
+const Kb1: keyboard = {
+    code: "KBR-001",
+    price: 850000,
+    discount: true,
+    disc: 0.25,
+    buy: 2,
+    stock:18
+
+
+};
+console.log("code produk :", Kb1.code)
+console.log("Price Produk :", Kb1.price)
+console.log("Discount :", Kb1.disc * 100 +"%" )
+console.log("Free Shipping :", memberprem)
+console.log("Total buy :", Kb1.buy)
+console.log("Stock barang :", Kb1.stock)
+
+
+

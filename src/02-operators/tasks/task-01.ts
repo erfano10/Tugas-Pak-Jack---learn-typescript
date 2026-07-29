@@ -14,3 +14,22 @@
  *  - Final payment
  * 2. Display the calculation results.
  */
+// npm run example src/02-operators/tasks/task-01.ts
+
+const jumlahnasigoreng = 3;
+const harganasigoreng =  18000;
+
+const jumlahAirMineral = 2;
+const hargaAirMineral = 5000;
+
+const discount = 10000;
+
+const totalHargaMakanan= jumlahnasigoreng * harganasigoreng;
+const totalHargaAirMineral= jumlahAirMineral * hargaAirMineral;
+const totalSebelumDiskon= totalHargaMakanan + totalHargaAirMineral;
+const totalAkhir= totalSebelumDiskon - discount
+
+console.log("Total Nasgor :", totalHargaMakanan)
+console.log("Total air mineral :", totalHargaAirMineral)
+console.log("Total Sebelum discount :", totalSebelumDiskon)
+console.log("Total Akhir :", totalAkhir)

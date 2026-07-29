@@ -33,3 +33,25 @@
  * - Calculate the remaining scholarship budget.
  * - Display whether the student is accepted.
  */
+//npm run example src/02-operators/tasks/task-05.ts
+
+const studentName = "Alya Putri"
+const GPA = 3.89
+const familyIncome = 4200000
+const CompetitionCount = 4
+const HasDisplayRecord = false
+const DocumentsComplete = true
+
+const totalBudget = 500000000
+const ScholarshipAmount = 12000000
+
+const isAccepted = 
+GPA >= 3.75 && familyIncome <= 500000000 && CompetitionCount >= 3 && HasDisplayRecord == false && DocumentsComplete == true
+
+const grantedScholarsip = isAccepted ? ScholarshipAmount : 0
+const remainingBudget = totalBudget - grantedScholarsip
+
+console.log(`--- Task 05 ---`)
+console.log("Is studend accepted?:", isAccepted)
+console.log("Schoolarsip Amount : Rp.", grantedScholarsip )
+console.log("Remaining Budget : Rp.", remainingBudget)
