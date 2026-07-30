@@ -33,8 +33,6 @@ const shopppingPlatformList: shoppingPlatform[] = [
 ]
 
 console.log(`---Task 10---`)
-console.log("Product Code\t| Product Name \t\t\t| price\t| Quantity\t| FreeShipping")
-console.log("------------------------------------------------------------------------------------")
 shopppingPlatformList.forEach((shopppingPlatform, index) => {
     console.log(`\nShopping Platform ke ${index + 1}`)
     console.log("Product Code :", shopppingPlatform.productCode)

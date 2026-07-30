@@ -32,17 +32,6 @@ const book1: library = {
     Isavailable: true
 
 }
-console.log("ISBNnumber :", book1.ISBNnumber)
-console.log("Title book :", book1.title)
-console.log("Author name :", book1.AuthorName)
-console.log("Total Page :", book1.TotalPage)
-console.log("Book Category :", book1.BookCategory)
-
-if (book1.Isavailable) {
-    console.log("Status : Book is Available");
-} else {
-    console.log("Status : Book is not Available");
-}
 
 const book2: library = {
     ISBNnumber: "978-623-01-9999",
@@ -53,16 +42,6 @@ const book2: library = {
     Isavailable: false
 
 }
-console.log("ISBNnumber :", book2.ISBNnumber)
-console.log("Title book :", book2.title)
-console.log("Author name :", book2.AuthorName)
-console.log("Total Page :", book2.TotalPage)
-console.log("Book Category :", book2.BookCategory)
-if (book2.Isavailable) {
-    console.log("Status : Book is Available");
-} else {
-    console.log("Status : Book is not Available");
-}
 const book3: library = {
     ISBNnumber: "978-979-11-1002",
     title: "Laskar Pelangi",
@@ -71,16 +50,19 @@ const book3: library = {
     BookCategory: "Drama",
     Isavailable: true
 }
-console.log("ISBNnumber :", book3.ISBNnumber)
-console.log("Title book :", book3.title)
-console.log("Author name :", book3.AuthorName)
-console.log("Total Page :", book3.TotalPage)
-console.log("Book Category :", book3.BookCategory)
-if (book3.Isavailable) {
-    console.log("Status : Book is Available");
-} else {
-    console.log("Status : Book is not Available");
-}
+const booklist: library[] = [book1, book2, book3]
+
+console.log("=== Task 04 ===")
+booklist.forEach((library, index) => {
+    console.log(`\nbook ke ${index + 1}`)
+    console.log("ISBNnumber :", library.ISBNnumber)
+    console.log("Title book :", library.title)
+    console.log("Author name :", library.AuthorName)
+    console.log("Total Page :", library.TotalPage)
+    console.log("Book Category :", library.BookCategory)
+    console.log("Book currently avalaible for borrowing :", library.Isavailable ? "Book Is Available for Borrowing" : "Book is not avalaible for borrowing")
+})
+
 
 
 

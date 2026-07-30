@@ -24,3 +24,27 @@
  * - Final bill
  * - Green Energy Program eligibility
  */
+
+const PreviousMeter = 25640
+const CurrentMeter = 25892
+const ElectricityPriceperkWh = 1650
+const SolarPanelInstalled = true
+const EnergySavingMode = false
+
+const totalconsumption = CurrentMeter - PreviousMeter
+const baseBill = totalconsumption * ElectricityPriceperkWh
+const solarDiscount = SolarPanelInstalled ? 0.20 : 0
+const energySavingdiscount = EnergySavingMode ? 0.05 : 0
+const TotalDiscountRate = solarDiscount + energySavingdiscount
+const discountAmound = baseBill * TotalDiscountRate
+
+const FinalBill = baseBill - discountAmound
+
+const isGreenEnergyEligible = SolarPanelInstalled && totalconsumption < 300 && EnergySavingMode
+
+console.log("==== Task 08 ===")
+console.log(`Total energy consumtion : ${totalconsumption} Kwh`)
+console.log(`Base bil : Rp ${baseBill}`)
+console.log(`Discount Amound (${TotalDiscountRate * 100} %): Rp ${discountAmound}`)
+console.log(`Final bill : ${FinalBill}`)
+console.log(`Green Energy Program : ${isGreenEnergyEligible ? "Eligible" : "Not Eligible"}`)
