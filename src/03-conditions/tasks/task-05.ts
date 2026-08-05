@@ -32,3 +32,28 @@
  *  - Implement the second screening only if the first screening is passed.
  *  - Display the correct result.
  */
+
+const StudentName : string = "Fajar Hidayat"
+const GPA: number = 3.86
+const FamilyIncome: number = 4200000
+const CompetitionCount: number = 4
+const  HasDisciplinaryRecord: boolean = false
+const DocumentComplete: boolean = true
+
+const firstScreaning = GPA >= 3.75 && FamilyIncome < 5000000
+
+console.log("=== Task 05 ===")
+console.log(`Student Name: ${StudentName}`)
+if(firstScreaning){
+    const SecondScreaning = CompetitionCount >= 3 && !HasDisciplinaryRecord && DocumentComplete
+    if(SecondScreaning){
+        console.log("Status : Schoolarsip Aproved")
+    }else{
+        console.log("Status : Passed First Screening, but Failed Second Screening")
+    }
+}else{
+    console.log(" Status : Failed first Screaning")
+}
+   
+
+

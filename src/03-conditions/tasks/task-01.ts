@@ -20,3 +20,17 @@
  * will be display "Congratulations! You are eligible to graduate.", 
  * otherwise display "You are not eligible to graduate."
  */
+//npm run example src/03-conditions/tasks/task-01.ts
+
+const studentName : string = "Alya Putri"
+const FinalScore: number = 82;
+const Attendance: number = 94;
+const TuitionPaid: boolean = true
+
+console.log(`=== Task 01 ===`)
+
+if(FinalScore >=75 && Attendance >=90 && TuitionPaid) {
+    console.log("Congratulations! You are eligible to graduate.")
+} else{
+    console.log("You are not eligible to graduate")
+}

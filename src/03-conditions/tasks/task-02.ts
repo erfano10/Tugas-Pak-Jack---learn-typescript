@@ -14,3 +14,15 @@
  * 3. Display the evaluation result. If eligible will display "Bonus Approved", 
  * otherwise display "Bonus not approved"
  */
+
+// npm run example src/03-conditions/tasks/task-02.ts
+
+const EmployeeName: string = "Dimas Pratama"
+const PerformanceScore: number = 78
+
+console.log(`=== Task 02 ===`)
+if(PerformanceScore >=80){
+    console.log("Bonus Aproved")
+}else{
+    console.log("Bonus not Approved")
+}
