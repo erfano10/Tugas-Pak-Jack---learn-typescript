@@ -11,6 +11,13 @@
  * Complete following functions!
  */
 
+type Student = {
+  name: string
+  major: string
+  active: boolean
+
+}
+
 const students = [
   {
     name: "Alya",
@@ -39,18 +46,51 @@ const students = [
   }
 ];
 
-function countActiveStudents(...){
-
+function countActiveStudents(students: Student[]): number {
+  let count: number = 0
+  for (let index = 0; index < students.length; index++) {
+    if (students[index].active) {
+      count++
+    }
+  }
+  return count
 }
 
-function countInactiveStudents(...){
-
+function countInactiveStudents(students: Student[]): number {
+  let count: number = 0
+  for (let index = 0; index < students.length; index++) {
+    if (!students[index].active) {
+      count++
+    }
+  }
+  return count
 }
 
-function countStudentsByMajor(...){
-
+function countStudentsByMajor(students: Student[], targetMajor: string): number {
+  let count: number = 0
+  for (let index = 0; index < students.length; index++) {
+    if (students[index].major === targetMajor) {
+      count++
+    }
+  }
+  return count
 }
 
-function printEnrollmentReport(...){
-    
+function printEnrollmentReport(students: Student[]): void {
+  const totalStudent: number = students.length
+  const activestudent: number = countActiveStudents(students)
+  const InactiveStudent: number = countInactiveStudents(students)
+  const Secount: number = countStudentsByMajor(students, "Software Engineering");
+  const Networkingcount: number = countStudentsByMajor(students, "Networking")
+  const Multimediacount: number = countStudentsByMajor(students, "Multimedia")
+
+  console.log(`=== Task 07 ===`)
+  console.log(`total student : ${totalStudent}`)
+  console.log(`active student : ${activestudent}`)
+  console.log(`Inactive student : ${InactiveStudent}`)
+  console.log(`Software Engineering : ${Secount}`)
+  console.log(`Networking student : ${Networkingcount}`)
+  console.log(`Multimedia student : ${Multimediacount}`)
+
 }
+printEnrollmentReport(students)

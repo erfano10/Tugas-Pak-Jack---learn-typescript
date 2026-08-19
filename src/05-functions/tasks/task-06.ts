@@ -26,21 +26,66 @@ const sales = [
 ];
 
 function calculateTotalSales(sales: number[]): number {
-
+  let TotalSales: number = 0
+  for (let index = 0; index < sales.length; index++) {
+    TotalSales += sales[index]
+  }
+  return TotalSales
 }
 
 function findHighestTransaction(sales: number[]): number {
+  let HighestTransaction: number = sales[0]
+  for (let index = 0; index < sales.length; index++) {
+    if (sales[index] > HighestTransaction) {
+      HighestTransaction = sales[index]
+    }
 
+  }
+  return HighestTransaction
 }
 
 function findLowestTransaction(sales: number[]): number {
-
+  let LowestTransaction: number = sales[0]
+  for (let index = 0; index < sales.length; index++) {
+    if (sales[index] < LowestTransaction) {
+      LowestTransaction = sales[index]
+    }
+  }
+  return LowestTransaction
 }
 
 function calculateAverageSale(sales: number[]): number {
-
+  const average: number = calculateTotalSales(sales)
+  return average / sales.length
 }
+
+
 
 function countLargeTransactions(sales: number[], minimumAmount: number): number {
+  let count: number = 0
+  for (let index = 0; index < sales.length; index++) {
+    if (sales[index] > minimumAmount) {
+      count++
+    }
 
+  }
+  return count
 }
+
+function printSalesDashboard(sales: number[]): void {
+  const total = calculateTotalSales(sales);
+  const highest = findHighestTransaction(sales);
+  const lowest = findLowestTransaction(sales);
+  const average = calculateAverageSale(sales);
+  const largeCount = countLargeTransactions(sales, 500000);
+
+  console.log(`=== Task 06 ===`)
+  console.log(`Total sales : ${total}`)
+  console.log(`Highest transaction : ${highest}`)
+  console.log(`Lowest transaction : ${lowest}`)
+  console.log(`Average transaction : ${average}`)
+  console.log(`Number of transactions : ${largeCount}`)
+}
+
+printSalesDashboard(sales)
+

@@ -18,3 +18,33 @@ const stocks = [
     9, 0, 55, 13, 2,
     30, 8, 41, 0, 16
 ];
+
+let CountOutOfStock: number = 0
+let CountLowStock: number = 0
+let CountSafeStock: number = 0
+let TotalInventory: number = 0 
+let totalStock: number = stocks.length
+
+for (let index = 0; index < stocks.length; index++) {
+    const stock: number = stocks[index]
+
+    if(stock === 0){
+        CountOutOfStock++
+    }else if (stock < 10) {
+        CountLowStock++
+    }else {
+        CountSafeStock++
+
+    }
+
+    TotalInventory += stock
+
+}
+
+console.log(`=== Task 06 ===`)
+
+console.log(`Number of Out of Stock : ${CountOutOfStock}`)
+console.log(`Number of Low Stock : ${CountLowStock}`)
+console.log(`Number of Safe Stock : ${CountSafeStock}`)
+console.log(`Total Invetory : ${TotalInventory}`)
+console.log(`Average score : ${TotalInventory / totalStock}`)
