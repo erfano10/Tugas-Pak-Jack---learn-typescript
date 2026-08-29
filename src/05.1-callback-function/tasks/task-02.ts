@@ -30,17 +30,49 @@ function processScores(
     callback: (score: number) => void
 ): void {
     // implementation
+    for (let index = 0; index < scores.length; index++) {
+        callback(scores[index])
+    }
 }
 
-function printScore(score: number) {
+function printScore(score: number): void {
     // implementation
+    console.log(`Score : ${score}`)
+
+}
+
+function checkpass(score: number): void {
+    if (score >= 70) {
+        console.log(`Score : ${score} - Passed`)
+    } else {
+        console.log(`Score : ${score} - failed`)
+    }
+
 }
 
 function showGrade(score: number) {
     // implementation
+    let grade: string;
+
+    if (score >= 90) {
+        grade = "A";
+    } else if (score >= 80) {
+        grade = "B";
+    } else if (score >= 70) {
+        grade = "C";
+    } else {
+        grade = "D";
+    }
+
+    console.log(`Score: ${score} -> Grade: ${grade}`);
 }
 
 
 // implementation of callback function
+console.log(`=== Task 02 ===`)
+console.log("\nReport 1: Print Score")
 processScores(scores, printScore)
+console.log("\nReport 2: Pass/Fail Status")
+processScores(scores, checkpass)
+console.log("\nReport 3: Grade Report")
 processScores(scores, showGrade)

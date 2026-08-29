@@ -1,12 +1,6 @@
 /**
  * An online store has the following products:
  */
-const products = [
-    { name: "Keyboard", price: 850000 },
-    { name: "Mouse", price: 275000 },
-    { name: "Monitor", price: 2200000 },
-    { name: "Headset", price: 650000 }
-];
 
 /**
  * The warehouse system needs to perform different operations on the same product list.
@@ -21,3 +15,49 @@ const products = [
  * 
  * Instead of creating a separate loop for every operation, the developer creates a reusable processing function.
  */
+
+
+type product = {
+    name: string
+    price: number
+}
+const products = [
+    { name: "Keyboard", price: 850000 },
+    { name: "Mouse", price: 275000 },
+    { name: "Monitor", price: 2200000 },
+    { name: "Headset", price: 650000 }
+];
+
+function processProduct(produk: product[], callback: (item: product) => void): void {
+    for (let index = 0; index < produk.length; index++) {
+        callback(produk[index])
+
+    }
+}
+
+function displayProduct(item: product): void {
+    console.log(`${item.name} - ${item.price}`)
+}
+
+function displayExpensiveProduct(item: product): void {
+    if (item.price > 1000000) {
+        console.log(`${item.name} - ${item.price}`)
+    }
+}
+
+function displayDiscountedProduct(item: product): void {
+    if (item.price > 500000) {
+        const discountPrice = item.price * 0.9
+        console.log(`${item.name} - originall : ${item.price} | after 10%  Discount : ${discountPrice}`)
+    }
+}
+console.log(`=== Task 03 ===`)
+console.log(`\nDisplay all Product`)
+processProduct(products, displayProduct)
+console.log("\nDisplay expensive Product")
+processProduct(products, displayExpensiveProduct)
+console.log(`\nDisplay product > 500.000 and after discount 10%`)
+processProduct(products, displayDiscountedProduct)
+
+
+

@@ -2,6 +2,13 @@
  * A company has a simple data-processing engine used to analyze transaction records.
  */
 
+
+type Transaksi = {
+    id: string
+    customer: string
+    amount: number
+    status: string
+}
 const transactions = [
     {
         id: "TRX001",
@@ -46,3 +53,57 @@ const transactions = [
  *   - Pending transactions → 1%
  *   - Cancelled transactions → 0%
  */
+
+type DETERMINETRANSACTION = "HIGH VALUE" | "MEDIUM VALUE" | "LOW VALUE"
+type TransactionCategory = Transaksi & { category: DETERMINETRANSACTION }
+type TransactionFee = Transaksi & { fee: number }
+
+function getName(item: Transaksi): string {
+    return item.customer
+}
+
+function DetermineTransaction(item: Transaksi): TransactionCategory {
+    let resultTransaksi: DETERMINETRANSACTION
+    if (item.amount >= 2000000) {
+        resultTransaksi = "HIGH VALUE"
+    } else if (item.amount >= 1000000) {
+        resultTransaksi = "MEDIUM VALUE"
+    } else {
+        resultTransaksi = "LOW VALUE"
+    }
+    return {
+        ...item,
+        category: resultTransaksi
+    }
+}
+
+function transactionFee(item : Transaksi) : TransactionFee {
+    let FeeAmount : number
+    if (item.status === "paid") {
+       FeeAmount = item.amount * 0.02
+    }else if (item.status === "pending"){
+        FeeAmount = item.amount * 0.01
+    }else {
+        FeeAmount = 0
+    }
+    
+    return{
+        ...item, fee:FeeAmount
+    }
+}
+
+
+function proccesTransaction<T>(arr: Transaksi[], callback: (item: Transaksi) => T): T[] {
+    const result: T[] = []
+
+    for (let index = 0; index < arr.length; index++) {
+        result.push(callback(arr[index]))
+    }
+    return result
+}
+const costumerName = proccesTransaction(transactions,getName)
+console.log({transactions: costumerName})
+const determineTransaction = proccesTransaction(transactions, DetermineTransaction)
+console.log({transactions: determineTransaction})
+const TransactionwithFees = proccesTransaction(transactions, transactionFee)
+console.log({transactions: TransactionwithFees})

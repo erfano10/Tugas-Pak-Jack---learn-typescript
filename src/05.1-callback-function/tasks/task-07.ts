@@ -27,6 +27,13 @@
  * - It should only process the students and execute the callback.
  */
 
+type Student = {
+    name: string
+    score: number
+    attendance: number
+
+}
+
 const students = [
     { name: "Alya", score: 92, attendance: 96 },
     { name: "Budi", score: 68, attendance: 88 },
@@ -35,3 +42,41 @@ const students = [
     { name: "Eka", score: 95, attendance: 82 },
     { name: "Fajar", score: 79, attendance: 97 }
 ];
+
+type ACADEMIC_PERFOMANCE = "Excellent" | "Good" | "Improve Academic Performance" | "Improve Attendance"
+type Student_Recommendation = Student & { recommendation: ACADEMIC_PERFOMANCE }
+
+
+function getRecommendation(student: Student): Student_Recommendation {
+    let ResultStatus: ACADEMIC_PERFOMANCE
+    if (student.score >= 90 && student.attendance >= 90) {
+        ResultStatus = "Excellent"
+    } else if (student.score >= 75 && student.attendance >= 90) {
+        ResultStatus = "Good"
+    } else if (student.score >= 75 && student.attendance < 90) {
+        ResultStatus = "Improve Attendance"
+    } else {
+        ResultStatus = "Improve Academic Performance"
+    }
+    return {
+        ...student,
+        recommendation: ResultStatus
+    }
+}
+
+
+
+
+
+
+function processStudents<T>(arr: Student[], callback: (student: Student) => T): T[] {
+    const result: T[] = []
+    for (let index = 0; index < arr.length; index++) {
+        result.push(callback(arr[index]))
+
+    }
+    return result
+}
+
+const StudentRecommendation = processStudents(students, getRecommendation)
+console.log({students : StudentRecommendation})
