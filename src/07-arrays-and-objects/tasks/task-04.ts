@@ -28,3 +28,23 @@ const cart = [
         quantity: 1,
     },
 ];
+
+const subtotal = cart.reduce((sum, Cart) => sum + Cart.price * Cart.quantity, 0)
+let discountRate = 0
+if (subtotal >= 3000000) {
+    discountRate = 0.1
+} else if (subtotal >= 2000000) {
+    discountRate = 0.05
+} else {
+    discountRate = 0
+}
+
+const discountAmount = subtotal * discountRate
+const finalSubtotal = subtotal - discountAmount
+
+const expensiveProduct = cart.filter((product) => product.price > 1000000)
+
+console.log(subtotal)
+console.log(discountAmount)
+console.log(finalSubtotal)
+console.log(expensiveProduct)

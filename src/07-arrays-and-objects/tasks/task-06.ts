@@ -24,3 +24,33 @@ const borrowings = [
     { student: "Eka", bookId: 1, days: 4 },
     { student: "Andi", bookId: 3, days: 8 },
 ];
+
+const borrowingAndi = borrowings.filter((item) => item.student === "Andi")
+const transactionWithBookInfo = borrowings.map((b) =>{
+const bookInfo = books.find((book) => book.id === b.bookId)
+return {
+    student: b.student,
+    bookTitle: bookInfo ? bookInfo.title : "Unknown",
+    category : bookInfo ? bookInfo.category : "Unknown",
+    days : b.days
+}
+})
+
+const ProggamingBorrowers = borrowings.filter((b) => {
+    const book = books.find((book) => book.id === b.bookId)
+    return book ? book.category === "Proggaming" : false
+}).map((b)=> b.student)
+
+const totalTransaction = borrowings.length
+const totalDays = borrowings.reduce((sum , b) => sum + b.days,0)
+const averageDuration = totalDays/borrowings.length
+
+const longTermBorrowers = borrowings.filter((b) => b.days > 7)
+.map((b) => b.student)
+
+console.log(borrowingAndi)
+console.log(transactionWithBookInfo)
+console.log(ProggamingBorrowers)
+console.log(totalTransaction)
+console.log(averageDuration)
+console.log(longTermBorrowers)

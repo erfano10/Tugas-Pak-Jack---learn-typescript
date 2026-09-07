@@ -60,7 +60,7 @@ function getPaymentStatus(selectedOrder: Order): PaymentStatusOrder {
     // implement to determine payment status order
     // this function return order data within status or order
 
-    const status: ORDER_STATUS = selectedOrder.paid ? "PAID" : "UNPAID"
+    const status = selectedOrder.paid ? "PAID" : "UNPAID"
     return {
         ...selectedOrder,
         status: status
@@ -83,7 +83,7 @@ function getShippingCategory(selectedOrder: Order): ShippingCategoryOrder {
 
     return {
         ...selectedOrder,
-        shippingStatus: shippingStatus
+        shippingStatus : shippingStatus
     }
 }
 

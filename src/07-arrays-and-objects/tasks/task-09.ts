@@ -33,3 +33,24 @@ const posts = [
     likes: 300,
   },
 ];
+
+
+const typescriptPosts = posts.filter((p) => {
+  return p.hashtags.includes("typescript")
+})
+
+
+const nestJSPosts = posts.filter((post)=> {
+  return post.hashtags.includes("nestjs")
+})
+//includes() digunakan karena ketika ingin memeriksa apakah sebuah kata kunci
+
+const postWithHighestNumber = posts.sort((a, b)=> b.likes - a.likes)
+const popularPost = postWithHighestNumber[0]
+
+const totalOFlikes = posts.reduce((sum, p)=> sum + p.likes,0)
+
+console.log(typescriptPosts)
+console.log(nestJSPosts)
+console.log(popularPost)
+console.log(totalOFlikes)

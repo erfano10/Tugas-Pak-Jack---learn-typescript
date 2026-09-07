@@ -72,3 +72,98 @@ const submissions = [
     },
 ];
 
+// TUGAS 1: Hitung Nilai (Score) Setiap Siswa
+const studentScores = submissions.map((sub) => {
+    let correctCount = 0
+
+    for (let studentAns of sub.answers) {
+        const question = questions.find((q) => q.id === studentAns.questionId)
+
+        if (question && studentAns.answer === question.correctAnswer) {
+            correctCount++
+        }
+    }
+    return {
+        student: sub.student,
+        score: correctCount * 25,
+    }
+
+
+})
+
+
+//TUGAS 2: Hitung Jumlah Benar & Salah
+const studentDetail = submissions.map((sub) => {
+    let correctCount = 0
+    for (let studentAns of sub.answers) {
+        const question = questions.find((q) => q.id === studentAns.questionId)
+
+        if (question && studentAns.answer === question.correctAnswer) {
+            correctCount++
+        }
+    }
+    const totalQuestion = questions.length
+    const wrongCount = totalQuestion - correctCount
+    return {
+        student: sub.student,
+        correct: correctCount,
+        wrong: wrongCount
+    }
+})
+// TUGAS 3: Rata-Rata Skor per Kategori Soal
+
+
+    let totalScoreTypeScript = 0
+    let totalScoreArray = 0
+
+    for (const sub of submissions) {
+        for (let studentAns of sub.answers) {
+            const question = questions.find((q) => q.id === studentAns.questionId);
+
+            if (question && studentAns.answer === question.correctAnswer) {
+                
+                if (question.category === "TypeScript") {
+                    totalScoreTypeScript += 25;
+                }
+               
+                if (question.category === "Array") {
+                    totalScoreArray += 25;
+                }
+            }
+        }
+    }
+
+const totalStudentsCount = submissions.length
+
+const categoryAverage: Record<string, number> = {
+  TypeScript: Number((totalScoreTypeScript / totalStudentsCount)),
+  Array: Number((totalScoreArray / totalStudentsCount))
+}
+//Tugas 4 Final Exam Analytics
+const scoresOnly = studentScores.map((s) => s.score)
+
+const totalStudents = studentScores.length
+const sumScores = scoresOnly.reduce((total, score) => total + score, 0)
+const averageScore = Number((sumScores / totalStudents))
+const sortedScores = scoresOnly.sort((a, b) => b - a)
+const highestScore = sortedScores[0] 
+const lowestScore = sortedScores[sortedScores.length - 1]
+
+const passedStudents = studentScores.filter((s) => s.score >= 75).length;
+const failedStudents = totalStudents - passedStudents;
+const passRate = Number(((passedStudents / totalStudents) * 100))
+
+const finalAnalytics = {
+  totalStudents: totalStudents,
+  averageScore: averageScore,
+  highestScore: highestScore,
+  lowestScore: lowestScore,
+  passedStudents: passedStudents,
+  failedStudents: failedStudents,
+  passRate: passRate
+}
+
+console.log(studentScores)
+console.log(studentDetail)
+console.log(categoryAverage)
+console.log(finalAnalytics)
