@@ -135,7 +135,7 @@ const studentDetail = submissions.map((sub) => {
 
 const totalStudentsCount = submissions.length
 
-const categoryAverage: Record<string, number> = {
+const categoryAverage = {
   TypeScript: Number((totalScoreTypeScript / totalStudentsCount)),
   Array: Number((totalScoreArray / totalStudentsCount))
 }
