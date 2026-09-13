@@ -40,6 +40,52 @@
  */
 
 
+class Employee {
+
+    constructor(
+        public EmployeID: string,
+        public name: string,
+        public position: string,
+        private basicSalary: number = 0,
+        private bonus: number = 0
+    ) { }
+
+    public getBasicSalary(): number {
+        return this.basicSalary
+    }
+
+    public setBasicSalary(newSalary : number): void{
+        if (newSalary <= 0 ) {
+            console.log(`Gaji pokok harus lebih dari 0`)
+        }else{
+            this.basicSalary = newSalary 
+            console.log(`Gaji pokok berhasil diperbarui menjadi ${this.basicSalary}`)
+        }
+    }
+
+    public addBonus(amount : number) : void {
+        if (amount < 0) {
+            console.log(`Bonus tidak boleh bernilai negatif`)
+        }else {
+            this.bonus += amount
+            console.log(`Bonus sebesar : Rp. ${amount}`)
+        }
+    } 
+    public getTotalSalary() : number {
+        return this.basicSalary + this.bonus
+    } 
+
+    public showProfile (): void {
+        console.log(this.EmployeID)
+        console.log(this.name)
+        console.log(this.position)
+        console.log(this.basicSalary)
+        console.log(this.bonus)
+       
+        
+    }
+}
+
 const employee = new Employee(
     "EMP001",
     "Kevin De Bruyne",
@@ -48,5 +94,6 @@ const employee = new Employee(
 );
 
 employee.addBonus(2000000);
+employee.showProfile()
 
 console.log(employee.getTotalSalary());

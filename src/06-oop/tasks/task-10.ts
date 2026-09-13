@@ -34,12 +34,88 @@
  * for get value of package weight
  */
 
+class Shipping {
+  private packageWeight: number
+  constructor(
+    public trackingNumber: string,
+    public destination: string,
+    weight: number
+  ) {
+    this.packageWeight = weight
+  }
+  public getWeight(): number {
+    return this.packageWeight
+  }
+  calculateCost(): number {
+    return 0
+  }
+}
+
+class RegularShipping extends Shipping {
+  constructor(
+    trackingNumber: string,
+    destination: string,
+    weight: number
+  ) {
+    super(trackingNumber, destination, weight)
+  }
+  calculateCost(): number {
+    return this.getWeight() * 10000
+  }
+}
+
+class ExpressShipping extends Shipping {
+  constructor(
+    trackingNumber: string,
+    destination: string,
+    weight: number
+  ) {
+    super(trackingNumber, destination, weight)
+  }
+  calculateCost(): number {
+    return this.getWeight() * 20000
+  }
+}
+
+class SameDayShipping extends Shipping {
+  constructor(
+    trackingNumber: string,
+    destination: string,
+    weight: number
+  ) {
+    super(trackingNumber, destination, weight)
+  }
+  calculateCost(): number {
+    return this.getWeight() * 30000
+  }
+}
+
+class InternationalShipping extends Shipping {
+  constructor(
+    trackingNumber: string,
+    destination: string,
+    weight: number
+  ) {
+    super(trackingNumber, destination, weight)
+  }
+  calculateCost(): number {
+    return this.getWeight() * 100000
+  }
+}
+
+const regularShipping = new RegularShipping("REG001", "Malang", 3)
+const expressShipping = new ExpressShipping("EXP001", "Surabaya", 2)
+const sameDayShipping = new SameDayShipping("SMD001", "Jakarta", 4)
+const intlShipping = new InternationalShipping("INT001", "Tokyo", 5)
+
 const shipments: Shipping[] = [
   regularShipping,
   expressShipping,
-  sameDayShipping
+  sameDayShipping,
+  intlShipping
 ];
 
 for (const shipment of shipments) {
   console.log(shipment.calculateCost());
+  console.log(`[${shipment.trackingNumber}] ${shipment.destination} (${shipment.getWeight()} kg) -> Shipping Cost: Rp${shipment.calculateCost().toLocaleString()}`)
 }

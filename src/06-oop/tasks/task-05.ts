@@ -43,6 +43,60 @@
  * getInventoryValue(): calculate price × stock
  */
 
+import { cp } from "node:fs";
+
+class Product {
+    constructor(
+        public productID: string,
+        public productName: string,
+        private price: number = 0,
+        private stock: number = 0
+    ) { }
+
+    public addStock(quantity: number): void {
+        if (quantity > 0) {
+            this.stock += quantity
+            console.log(`Stok ${this.productName} berhasil ditambah ${quantity}. Stok sekarang: ${this.stock}`);
+        } else {
+            console.log("Jumlah penambahan stok harus lebih dari 0!");
+        }
+    }
+    public removeStock(quantity: number): void {
+        if (quantity <= 0) {
+            console.log(`Jumlah pengurangan barang harus lebih dari 0`)
+        } else if (quantity > this.stock) {
+            console.log(`Stock tidak mencukupi. stok sekarang ada : ${this.stock}`)
+        } else {
+            this.stock -= quantity
+            console.log(`Stock ${this.productName} berhasil dikurangi ${quantity}. Stock sekarang : ${this.stock}`)
+        }
+    }
+    public changePrice(newPrice: number): void {
+        if (newPrice > 0) {
+            this.price = newPrice
+            console.log(`Harga ${this.productName} berhasil diubah menjadi Rp${newPrice}`)
+        } else {
+            console.log(`Harga harus lebih dari 0`)
+        }
+    }
+    public isAvailable(): boolean {
+        return this.stock > 0
+    }
+    public getInventoryValue(): number {
+        return this.price * this.stock
+    }
+    public showProductInfo() : void {
+        console.log(`ID Product : ${this.productID}`)
+        console.log(`Name Product : ${this.productName}`)
+        console.log(`Price Product : ${this.price}`)
+        console.log(`Stock product : ${this.stock}`)
+        console.log(`Is Available : ${this.isAvailable()}`)
+        console.log(`Inventory Value : ${this.getInventoryValue()}`)
+    }
+}
+
+
+
 const laptop = new Product(
     "PRD001",
     "Gaming Laptop",
@@ -59,3 +113,5 @@ laptop.changePrice(14500000);
 console.log(laptop.isAvailable());
 
 console.log(laptop.getInventoryValue());
+
+laptop.showProductInfo()

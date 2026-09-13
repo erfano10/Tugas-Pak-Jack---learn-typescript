@@ -38,3 +38,38 @@
  * - Amount must be greater than 0.
  * - Amount cannot exceed the current balance.
  */
+
+
+class DigitalWallet {
+    constructor(private balance: number,
+        public walletID: string,
+        public owner: string
+    ) {
+    }
+    public deposit(amount: number): void {
+        if (amount > 0) {
+            this.balance += amount
+        }
+    }
+    public withdraw(amount: number): void {
+        if (amount > 0 && amount <= this.balance) {
+            this.balance -= amount
+        }
+    }
+
+    public getBalance(): number {
+        return this.balance
+    }
+    public showWalletInfo(): void {
+        console.log(this.walletID)
+        console.log(this.owner)
+        console.log(this.balance)
+    }
+}
+
+const akun = new DigitalWallet(10000000, "WALL002", "Supri")
+akun.deposit(400000)
+akun.withdraw(210000)
+akun.showWalletInfo()
+
+
