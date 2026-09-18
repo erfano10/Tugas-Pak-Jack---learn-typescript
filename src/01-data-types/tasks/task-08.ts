@@ -42,8 +42,8 @@ const Greenhousetemperature: temperatureRecord[] = [
 console.log("---Task 08---")
 console.log("| TIME       |    TEMPERATURE(C) |")
 console.log(`|------------|-------------------|`)
-Greenhousetemperature.forEach((temperatureRecord, ) => {
-    console.log(`| time ${temperatureRecord.time} | temperature ${temperatureRecord.time } |`)
-    
+Greenhousetemperature.forEach((temperatureRecord,) => {
+    console.log(`| time ${temperatureRecord.time} | temperature ${temperatureRecord.time} |`)
+
 }
 )

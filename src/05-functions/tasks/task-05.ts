@@ -81,5 +81,3 @@ function printReport(scores: number[]): void {
 }
 
 printReport(scores)
-
-

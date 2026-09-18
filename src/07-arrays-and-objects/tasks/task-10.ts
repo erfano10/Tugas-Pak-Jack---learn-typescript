@@ -166,4 +166,4 @@ const finalAnalytics = {
 console.log(studentScores)
 console.log(studentDetail)
 console.log(categoryAverage)
-console.log(finalAnalytics)
+

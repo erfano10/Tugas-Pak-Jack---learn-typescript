@@ -54,7 +54,7 @@ class Employee {
         return this.basicSalary
     }
 
-    public setBasicSalary(newSalary : number): void{
+    public setBasicSalary(newSalary : number){
         if (newSalary <= 0 ) {
             console.log(`Gaji pokok harus lebih dari 0`)
         }else{
